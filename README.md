@@ -62,11 +62,11 @@ Adding State Hook to App.js
 
 1) Import useState to App.js
 2) Make new useState const with [tasks, setTasks]. The initial value ist 'props.tasks'. Now you can store the tasks in useState. That will be the main state tracker of the task list.
-3) Now you can change the taskList const that maps over the tasks. Here from now on you can map 'tasks' instead of 'props.tasks' because now prop.tasks = tasks main useState.
+3) Now you can change the taskList const that maps over the tasks. Here from now on you can map 'tasks' instead of 'props.tasks' because now prop.tasks = tasks in the main useState.
 
 Adding a Task
 
-1) Turning back to the addTask() function, you need to put the name into an object that has the same structure as your existing tasks. Inside of the addTask() function, make a 'newTask' object to add to the array. Because 'tasks(DATA)' is an array of objects and 'name' is a string.
+1) Turning back to the addTask() function, you need to put the name into an object that has the same structure as your existing tasks. Inside the addTask() function, make a 'newTask' object to add to the array. Because 'tasks(DATA)' is an array of objects and 'name' is a string.
 2) Then in addTask() make a new array, with the existing tasks. And add the newTask into this array;  setTasks([newTask, ...tasks])
 3) To give a unique item to each new task, npm install nanoid. And import it into App.js
 4) Add nanoid into id prop of newTask const in addTask() function something like todo+nanoid().
@@ -81,10 +81,10 @@ Counting the Remaining Tasks
 Completing a Task
 
 1) To make your checkboxes of your task items really work, add the toggleTaskCompleted(id) function with an 'id' argument under addTask function in the App().
-2) That function has to change the state of the App() so that all tasks list has to re-render without the completed task. Assign a new const into the function which is called updatedTasks.
-3) updatedTasks will be the new tasks list instead of taskList without the completed task. Thus, updatedTasks has to map over the tasks and exclude the completed task.
+2) That function has to change the state of the App() so that all tasks list has to re-render with the tasks, which are marked as completed. Assign a new const into the function which is called updatedTasks.
+3) updatedTasks will be the new tasks list instead of taskList with the completed tasks. Thus, updatedTasks has to map over the tasks with the marked ones.
 4) Add toggleTaskCompleted() function as a property of <Todo /> which is rendered in taskList const.
-5) Now go to the 'input' element in the Todo.jsx component and add an onChange event listener. That event listener must trigger the toggleTaskCompleted(props.id) function with a callback function. Remember that this function is also a prop of the Todo component.
+5) Now go to the 'input' element in the Todo.jsx component and add an onChange event listener. That event listener must trigger the toggleTaskCompleted(props.id) function with a callback function. Remember this function is also a prop of the Todo component.
 
 Deleting a Task
 
